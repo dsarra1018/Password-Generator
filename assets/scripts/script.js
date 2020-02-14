@@ -24,6 +24,14 @@ generateBtn.addEventListener("click", writePassword);
 
 // A function that generates a password
 function generatePassword(){
-    console.log("You've pressed a button!")
+    
+    // prompt that asks the user for the length of the password
+    let passLenght = prompt("How many characters would you like your password to contain?");
+    console.log(passLenght);
+
+    let useSpecialChar = confirm("Click OK to confirm including special characters.");
+    let useNumericVal = confirm("Click OK to confirm including numeric characters.");
+    let useLowercase = confirm("Click OK to confirm including lowercase characters.");
+    let useUppercase = confirm("Click OK to confirm including uppercase characters.");
 
 }
