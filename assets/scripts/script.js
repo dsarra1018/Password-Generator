@@ -6,13 +6,14 @@ let uppercaseLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K",
 "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 let lowercaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k",
 "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-let numericValues = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+let numericValues = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 let specialCharacter = ["@", "%", "+", "\\", "/", "'", "!", "#", "$", "^",
 "?", ":", ",", ")", "(", "}", "{", "]", "[", "~", "-", "_", "."];
 let options = [];
 
 // Write password to the #password input
-function writePassword() {
+function writePassword()
+{
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
@@ -24,18 +25,22 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 // A function that generates a password
-function generatePassword(){
+function generatePassword()
+{
+    // empty string to be returned
+    let pass = "";
     
     // prompt that asks the user for the length of the password
-    let passLenght = prompt("How many characters would you like your password to contain?");
-    console.log(passLenght);
+    let passLenght = parseInt(
+        prompt("How many characters would you like your password to contain?"));
+
 
     // Dealing with special characters
     let useSpecialChar = confirm("Click OK to confirm including special characters.");
 
     if (useSpecialChar)
     {
-        console.log("Yes, use special char");
+        //console.log("Yes, use special char");
         options.push(specialCharacter);
     }
     else
@@ -49,7 +54,7 @@ function generatePassword(){
 
     if (useNumericVal)
     {
-        console.log("Yes, use numeric val");
+        //console.log("Yes, use numeric val");
         options.push(numericValues);
     }
     else
@@ -62,7 +67,7 @@ function generatePassword(){
 
     if (useLowercase)
     {
-        console.log("Yes, use lowercase letters");
+        //console.log("Yes, use lowercase letters");
         options.push(lowercaseLetters);
     }
     else
@@ -75,7 +80,7 @@ function generatePassword(){
 
     if (useUppercase)
     {
-        console.log("Yes, use uppercase letters");
+        //console.log("Yes, use uppercase letters");
         options.push(uppercaseLetters);
     }
     else
@@ -83,9 +88,16 @@ function generatePassword(){
         console.log("No, don't use uppercase letters");
     }
 
+    // Itirates through passLength
+    for (let i = 0; i < passLenght; i++)
+    {
+        let option_index = Math.floor(Math.random() * options.length);
+        let char_index = Math.floor(Math.random() * options[option_index].length);
 
-    
+        pass += options[option_index][char_index];
 
+    }
 
-
+    // returning value of pass
+    return pass;
 }
