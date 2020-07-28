@@ -31,8 +31,7 @@ function generatePassword()
     let pass = "";
     
     // prompt that asks the user for the length of the password
-    let passLenght = parseInt(
-        prompt("How many characters would you like your password to contain?"));
+    let passLength = parseInt(prompt("How many characters would you like your password to contain?"));
 
 
     // Dealing with special characters
@@ -89,7 +88,7 @@ function generatePassword()
     }
 
     // Itirates through passLength
-    for (let i = 0; i < passLenght; i++)
+    for (let i = 0; i < passLength; i++)
     {
         let option_index = Math.floor(Math.random() * options.length);
         let char_index = Math.floor(Math.random() * options[option_index].length);
