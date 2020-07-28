@@ -33,6 +33,9 @@ function generatePassword()
     // prompt that asks the user for the length of the password
     let passLength = parseInt(prompt("How many characters would you like your password to contain?"));
 
+    // Checks for the length of the password
+    checkPassLength(passLength);
+
 
     // Dealing with special characters
     let useSpecialChar = confirm("Click OK to confirm including special characters.");
@@ -100,3 +103,11 @@ function generatePassword()
     // returning value of pass
     return pass;
 }
+
+// A function that checks for the password length: 8 <= password.length <= 128
+checkPassLength = (password) => {
+  while(password < 8 || password > 125) {
+    password = parseInt(prompt("How many characters would you like your password to contain?"));
+  }
+  return password;
+};
